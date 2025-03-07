@@ -1,13 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Clima</ion-title>
+    <ion-title>Clima en Republica Dominicana</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Clima</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-progress-bar *ngIf="isLoading" type="indeterminate"></ion-progress-bar>
+
+  <ion-card *ngIf="weatherData">
+    <ion-card-header>
+      <ion-card-title>Clima</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Descripción:</strong> {{ weatherData.description }}</p>
+      <p><strong>Tiempo:</strong> {{ weatherData.time * 1000 | date:'medium'}} hPa</p>
+      <p><strong>Temperatura:</strong> {{ weatherData.temperature }} °C</p>
+      <p><strong>Humedad:</strong> {{ weatherData.humidity }}%</p>
+      <p><strong>Velocidad del viento:</strong> {{ weatherData.windSpeed }} m/s</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

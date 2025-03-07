@@ -1,0 +1,18 @@
+ion-menu-button {
+    color: var(--ion-color-primary);
+  }
+  
+  .imagen{
+    width: 250px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+  
+ion-card{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+  

@@ -4,10 +4,48 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Universidades</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-progress-bar *ngIf="isLoading" type="indeterminate"></ion-progress-bar>
+  
+  <ion-item>
+    <ion-label>Pais</ion-label>
+    <ion-item>
+      <ion-select [(ngModel)]="targetCountry" (ionChange)="onCountryChange()">
+        <ion-select-option *ngFor="let country of countries" [value]="country"> 
+          {{country}} 
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-item>
+  <ion-list *ngIf="responseData?.length">
+    <ion-item *ngFor="let university of responseData">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{university.name}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let domain of university.domains">
+              <ion-label>
+                {{domain}}
+              </ion-label>
+            </ion-item>
+          </ion-list>
+          <ion-list>
+            <ion-item *ngFor="let web of university.web_pages">
+              <ion-label>
+                <a [href]="web" target="_blank">{{ web }}</a>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>

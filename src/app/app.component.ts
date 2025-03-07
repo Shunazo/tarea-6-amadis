@@ -16,7 +16,7 @@ export class AppComponent {
     { title: 'Inicio', url: '/inicio', icon: 'mail' },
     { title: 'Genero', url: '/genero', icon: 'paper-plane' },
     { title: 'Edad', url: '/edad', icon: 'heart' },
-    { title: 'Universidad', url: '/universidad', icon: 'archive' },
+    { title: 'Universidad', url: 'universidad', icon: 'archive' },
     { title: 'Clima', url: '/clima', icon: 'trash' },
     { title: 'Pokemones', url: '/pokemon', icon: 'warning' },
     { title: 'Wordpress', url: '/wordpress', icon: 'paper-plane' },

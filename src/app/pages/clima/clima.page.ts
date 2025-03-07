@@ -1,20 +1,37 @@
+import { WeatherServiceService } from './../../api/weather-service.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCardContent, IonCardTitle, IonCard, IonCardHeader, IonProgressBar, } from '@ionic/angular/standalone';
+
 
 @Component({
-  selector: 'app-clima',
-  templateUrl: './clima.page.html',
-  styleUrls: ['./clima.page.scss'],
+  selector: 'app-weather-repo-rd',
+  templateUrl: './weather-repo-rd.page.html',
+  styleUrls: ['./weather-repo-rd.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonProgressBar, IonCardHeader, IonCard, IonCardTitle, IonCardContent, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule ]
 })
 export class ClimaPage implements OnInit {
-
-  constructor() { }
+  isLoading: boolean = false;
+  weatherData: any;
+  constructor(private weatherService: WeatherServiceService) { }
 
   ngOnInit() {
+    this.fetchWeatherData(18.4861, -69.9312);
   }
 
+  fetchWeatherData(latitude: number, longitude: number) {
+    this.isLoading = true;
+    this.weatherService.getWeatherData(latitude, longitude).subscribe(
+      (data) => {
+        this.weatherData = data;
+        this.isLoading = false;
+      },
+      (error) => {
+        console.error(error);
+        this.isLoading = false;
+      }
+    );
+  }
 }
