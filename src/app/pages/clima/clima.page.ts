@@ -6,9 +6,9 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonCardContent, IonCardTit
 
 
 @Component({
-  selector: 'app-weather-repo-rd',
-  templateUrl: './weather-repo-rd.page.html',
-  styleUrls: ['./weather-repo-rd.page.scss'],
+  selector: 'app-clima',
+  templateUrl: './clima.page.html',
+  styleUrls: ['./clima.page.scss'],
   standalone: true,
   imports: [IonProgressBar, IonCardHeader, IonCard, IonCardTitle, IonCardContent, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule ]
 })

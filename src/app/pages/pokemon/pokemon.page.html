@@ -10,4 +10,36 @@
       <ion-title size="large">Pokemones</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-item>
+  <ion-input [(ngModel)]="targetPokemon" type="text" placeholder="Nombre del Pokemon"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="getPokemonInfo(targetPokemon || '')" expand="full">Buscar</ion-button>
+
+  <ion-card *ngIf="pokemon">
+    <ion-card-header>
+      <ion-card-title>{{ pokemon.name | uppercase }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-img *ngIf="pokemon.image" [src]="pokemon.image" alt="pokemon-image"></ion-img>
+
+        <p><strong>Experiencia:</strong> {{ pokemon.baseExp }}</p>
+
+          <ion-list>
+
+            <ion-item *ngFor="let ability of pokemon.abilities">
+
+              <ion-label>{{ ability.ability.name }}</ion-label>
+
+            </ion-item>
+
+          </ion-list>
+
+    </ion-card-content>
+
+  </ion-card>
+
 </ion-content>
