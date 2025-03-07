@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Género</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Género</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input [(ngModel)]="nombre"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="getGenero(nombre)">Consultar Género</ion-button>
+
+  <div *ngIf="genero"class="gender">
+    <p>El género estimado es: <strong>{{ genero }}</strong></p>
+    <img *ngIf="imagenUrl" [src]="imagenUrl" alt="{{ genero }}" style="width: 150px; margin-top: 10px;">
+  </div>
+</ion-content>
