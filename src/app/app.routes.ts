@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'inicio',
+    redirectTo: 'acercade',
     pathMatch: 'full',
   },
   {
@@ -33,9 +33,5 @@ export const routes: Routes = [
   {
     path: 'acercade',
     loadComponent: () => import('./pages/acercade/acercade.page').then( m => m.AcercadePage)
-  },
-  {
-    path: 'inicio',
-    loadComponent: () => import('./pages/inicio/inicio.page').then( m => m.InicioPage)
   },
 ];

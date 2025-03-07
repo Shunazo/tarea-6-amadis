@@ -25,24 +25,24 @@ export class WordpressPage implements OnInit {
     this.fetchNotices();
   }
 
-  // Adjusted method to fetch notices
+  
   getNotices(): Observable<any> {
-    return this.http.get<any>(this.url); // No need for an array, we expect an object with 'data'
+    return this.http.get<any>(this.url); 
   }
 
   fetchNotices() {
     this.getNotices().subscribe(
       (response) => {
-        // Ensure we are handling the response structure correctly
-        const newsData = response.data; // Fetch the 'data' array from the API response
-        this.latestNotice = newsData.slice(0, 3); // Slice to get the top 3 articles
+        
+        const newsData = response.data; 
+        this.latestNotice = newsData.slice(0, 3); 
 
-        // Process each article
+        
         this.latestNotice.forEach((notice) => {
-          let content = notice.snippet; // The snippet gives a brief overview of the article
+          let content = notice.snippet; 
           
-          // Example: sanitize the snippet or you could use full article content
-          notice.sanitizedContent = this.sanitizer.bypassSecurityTrustHtml(content); // Sanitizing the snippet content
+          
+          notice.sanitizedContent = this.sanitizer.bypassSecurityTrustHtml(content); 
         });
       },
       (error) => {
