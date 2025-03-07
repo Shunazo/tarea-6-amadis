@@ -11,15 +11,19 @@
     </ion-toolbar>
   </ion-header>
 
-
-
-  <ion-card *ngFor="let notice of lastestNotice">
+  <!-- Loop through latestNotice array -->
+  <ion-card *ngFor="let notice of latestNotice">
 
     <ion-card-header>
-      <ion-card-title [innerHTML]="notice.title.rendered"></ion-card-title>
-      <ion-card-subtitle><a [href]="notice.link" target="_blank">{{ notice.link}}</a></ion-card-subtitle>
+      <!-- Display title -->
+      <ion-card-title [innerHTML]="notice.title"></ion-card-title>
+      
+      <!-- Display link -->
+      <ion-card-subtitle>
+        <a [href]="notice.url" target="_blank">{{ notice.url }}</a>
+      </ion-card-subtitle>
     </ion-card-header>
 
-    <ion-card-content [innerHtml]="notice.sanitizedContent"></ion-card-content>
+    <ion-card-content [innerHTML]="notice.sanitizedContent"></ion-card-content>
   </ion-card>
 </ion-content>

@@ -24,6 +24,7 @@ export class GeneroPage  {
     this.http.get(url).subscribe((data: any) => {
       this.genero = data.gender;
       this.determinarCategoria();
+      console.log('Genero estimado:', this.genero);
     })
   }
 

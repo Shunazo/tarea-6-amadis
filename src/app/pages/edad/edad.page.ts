@@ -31,6 +31,7 @@ export class EdadPage {
       if (data.age !== null && data.age !== undefined) {
         this.edad = data.age;
         this.determinarCategoria();
+        console.log('Edad estimada:', this.edad);
       } else {
         this.edad = 0;
         this.categoria = 'Desconocido';
